@@ -1,0 +1,62 @@
+<script>
+  function actionSignIn() {
+    var emai, password;
+    var emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+
+    if (!emailPattern.test(email) || password.length < 5) {
+      alert("Tài khoản hoặc mật khẩu không hợp lệ!");
+      window.location.href = "/signin";
+    } else {
+      if (email != user.email || password != user.password) {
+        alert("Sai tài khoản hoặc mật khẩu!");
+        window.location.href = "/signin";
+      } else {
+        alert("Đăng nhập thành công!");
+        window.location.href = "/home";
+      }
+    }
+  }
+</script>
+
+<script>
+  function actionForgotPassword() {
+    var email;
+    var emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+
+    if (!emailPattern.test(email)) {
+      alert("Vui lòng nhập đúng định dạng email!");
+      window.location.href = "/signin";
+    } else {
+      alert("Đã gửi!");
+      window.location.href = "/resetpassword?token=?";
+
+      var newPassword, confirmPassword;
+      if (newPassword.length < 5 || newPassword !== confirmPassword) {
+        alert("Mật khẩu không hợp lệ!");
+        window.location.href = "/resetpassword?token=?";
+      } else {
+        alert("Cập nhật mật khẩu thành công!");
+        window.location.href = "/signin";
+      }
+    }
+  }
+</script>
+
+<script>
+  var newName, newEmail, newPassword;
+  var emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+
+  if (newName == "") {
+    alert("Tên không được để trống");
+  } else {
+    if (!emailPattern.test(newEmail)) {
+      alert("Email không hợp lệ");
+    } else {
+      if (newPassword.length < 5) {
+        alert("Mật khẩu không hợp lệ");
+      } else {
+        alert("Tạo mới người dùng thành công");
+      }
+    }
+  }
+</script>
